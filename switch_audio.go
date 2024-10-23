@@ -1,4 +1,4 @@
-package audio_osx
+package audio
 
 import (
 	"os/exec"
@@ -15,22 +15,20 @@ func GetCurrentAudioSource() (string, error) {
 	return deviceName, nil
 }
 
-/*
-func GetAllAudioSources() ([]OutputSource, error) {
+func GetAllAudioSources() ([]string, error) {
 	cmd := exec.Command("SwitchAudioSource", "-a")
 	output, err := cmd.Output()
 	if err != nil {
 		return nil, err
 	}
 
-	var audioSources []OutputSource
+	var audioSources []string
 	elements := strings.Split(string(output), "\n")
 	for _, deviceName := range elements {
 		if deviceName != "" {
-			audioSources = append(audioSources, OutputSource{Name: deviceName})
+			audioSources = append(audioSources, deviceName)
 		}
 	}
-
 	return audioSources, nil
 }
 
@@ -41,4 +39,3 @@ func SetOutputSource(sourceName string) error {
 
 	return err
 }
-*/
