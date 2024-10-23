@@ -1,4 +1,4 @@
-package audio
+package audio_osx
 
 import (
 	"os/exec"
